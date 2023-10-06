@@ -1,19 +1,11 @@
-import {
-  aws_iam,
-  aws_lambda,
-  aws_lambda_nodejs,
-  aws_events,
-  aws_events_targets,
-  aws_logs,
-  Duration,
-} from 'aws-cdk-lib';
+import { aws_iam, aws_lambda_nodejs, aws_events, aws_events_targets, aws_logs, Duration } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Namer } from 'multi-convention-namer';
 
 export interface LambdaEniUsageMetricPublisherProps {
   /**
    * How long to retain logs published to CloudWatch logs.
-   * @default aws_logs.RetentionDays.ONE_WEEK
+   * @default aws_logs.RetentionDays.THREE_MONTHS
    */
   readonly cloudwatchLogsRetention?: aws_logs.RetentionDays;
   /**
@@ -57,42 +49,36 @@ export class LambdaEniUsageMetricPublisher extends Construct {
     this.cwNamespace = props.cwNamespace ?? 'LambdaHyperplaneEniUsage';
     const myConstruct = this;
 
-    function eniUsageMetricPublisherHandler(handler: string, cwNamespace: string): aws_lambda_nodejs.NodejsFunction {
-      const fn = new aws_lambda_nodejs.NodejsFunction(myConstruct, handler, {
-        bundling: {
-          externalModules: ['aws-lambda'],
-          minify: true,
-        },
-        handler,
-        runtime: aws_lambda.Runtime.NODEJS_18_X,
-        logRetention: props.cloudwatchLogsRetention ?? aws_logs.RetentionDays.ONE_WEEK,
-        memorySize: 512,
-        timeout: Duration.seconds(45),
-      });
+    this.handler = new aws_lambda_nodejs.NodejsFunction(myConstruct, 'monitor', {
+      bundling: {
+        externalModules: ['aws-lambda'],
+        minify: true,
+      },
+      handler: 'monitor',
+      logRetention: props.cloudwatchLogsRetention ?? aws_logs.RetentionDays.THREE_MONTHS,
+      memorySize: 512,
+      timeout: Duration.seconds(45),
+    });
 
-      [
-        new aws_iam.PolicyStatement({
-          actions: ['ec2:DescribeNetworkInterfaces', 'ec2:DescribeVpcs'],
-          resources: ['*'],
-        }),
-        new aws_iam.PolicyStatement({
-          actions: ['cloudwatch:PutMetricData'],
-          resources: ['*'],
-          conditions: {
-            StringEquals: {
-              'cloudwatch:namespace': props.cwNamespace ?? cwNamespace,
-            },
+    [
+      new aws_iam.PolicyStatement({
+        actions: ['ec2:DescribeNetworkInterfaces', 'ec2:DescribeVpcs'],
+        resources: ['*'],
+      }),
+      new aws_iam.PolicyStatement({
+        actions: ['cloudwatch:PutMetricData'],
+        resources: ['*'],
+        conditions: {
+          StringEquals: {
+            'cloudwatch:namespace': props.cwNamespace ?? this.cwNamespace,
           },
-        }),
-      ].forEach((policy) => fn.addToRolePolicy(policy));
+        },
+      }),
+    ].forEach((policy) => this.handler.addToRolePolicy(policy));
 
-      return fn;
-    }
-
-    this.handler = eniUsageMetricPublisherHandler('monitor', this.cwNamespace)
+    this.handler
       .addEnvironment('REGION_LIST', props.regions?.join(',') ?? this.regions.join(','))
       .addEnvironment('CW_NAMESPACE', props.cwNamespace ?? this.cwNamespace);
-    //Review rule name
 
     this.rule = new aws_events.Rule(this, 'rule', {
       schedule: aws_events.Schedule.rate(Duration.minutes(this.publishFrequency)),

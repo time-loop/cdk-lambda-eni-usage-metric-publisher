@@ -195,7 +195,7 @@ public readonly cloudwatchLogsRetention: RetentionDays;
 ```
 
 - *Type:* aws-cdk-lib.aws_logs.RetentionDays
-- *Default:* aws_logs.RetentionDays.ONE_WEEK
+- *Default:* aws_logs.RetentionDays.THREE_MONTHS
 
 How long to retain logs published to CloudWatch logs.
 
