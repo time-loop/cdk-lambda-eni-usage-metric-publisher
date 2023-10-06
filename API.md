@@ -5,9 +5,7 @@
 
 ### LambdaEniUsageMetricPublisher <a name="LambdaEniUsageMetricPublisher" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher"></a>
 
-LambdaEniUsageMetricPublisher is a construct that creates a Lambda function that publishes ENI usage metric to CloudWatch.
-
-The Lambda function is triggered by an EventBridge rule according to the publishFrequency prop.
+A construct that creates an AWS Lambda function to publish ENI usage metrics to CloudWatch.
 
 #### Initializers <a name="Initializers" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer"></a>
 
@@ -19,9 +17,9 @@ new LambdaEniUsageMetricPublisher(scope: Construct, id: Namer, props: LambdaEniU
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.id">id</a></code> | <code>multi-convention-namer.Namer</code> | *No description.* |
-| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.props">props</a></code> | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps">LambdaEniUsageMetricPublisherProps</a></code> | *No description.* |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The parent construct. |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.id">id</a></code> | <code>multi-convention-namer.Namer</code> | The ID of the construct. |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.props">props</a></code> | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps">LambdaEniUsageMetricPublisherProps</a></code> | The properties of the construct. |
 
 ---
 
@@ -29,17 +27,23 @@ new LambdaEniUsageMetricPublisher(scope: Construct, id: Namer, props: LambdaEniU
 
 - *Type:* constructs.Construct
 
+The parent construct.
+
 ---
 
 ##### `id`<sup>Required</sup> <a name="id" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.id"></a>
 
 - *Type:* multi-convention-namer.Namer
 
+The ID of the construct.
+
 ---
 
 ##### `props`<sup>Required</sup> <a name="props" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps">LambdaEniUsageMetricPublisherProps</a>
+
+The properties of the construct.
 
 ---
 
@@ -90,9 +94,11 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.cwNamespace">cwNamespace</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.handler">handler</a></code> | <code>aws-cdk-lib.aws_lambda_nodejs.NodejsFunction</code> | *No description.* |
-| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.Rule</code> | *No description.* |
 | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.publishFrequency">publishFrequency</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.regions">regions</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.rule">rule</a></code> | <code>aws-cdk-lib.aws_events.Rule</code> | *No description.* |
 
 ---
 
@@ -108,6 +114,16 @@ The tree node.
 
 ---
 
+##### `cwNamespace`<sup>Required</sup> <a name="cwNamespace" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.cwNamespace"></a>
+
+```typescript
+public readonly cwNamespace: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `handler`<sup>Required</sup> <a name="handler" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.handler"></a>
 
 ```typescript
@@ -118,6 +134,26 @@ public readonly handler: NodejsFunction;
 
 ---
 
+##### `publishFrequency`<sup>Required</sup> <a name="publishFrequency" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.publishFrequency"></a>
+
+```typescript
+public readonly publishFrequency: number;
+```
+
+- *Type:* number
+
+---
+
+##### `regions`<sup>Required</sup> <a name="regions" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+
+---
+
 ##### `rule`<sup>Required</sup> <a name="rule" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.rule"></a>
 
 ```typescript
@@ -125,16 +161,6 @@ public readonly rule: Rule;
 ```
 
 - *Type:* aws-cdk-lib.aws_events.Rule
-
----
-
-##### `publishFrequency`<sup>Optional</sup> <a name="publishFrequency" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisher.property.publishFrequency"></a>
-
-```typescript
-public readonly publishFrequency: number;
-```
-
-- *Type:* number
 
 ---
 
@@ -155,7 +181,36 @@ const lambdaEniUsageMetricPublisherProps: LambdaEniUsageMetricPublisherProps = {
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.cloudwatchLogsRetention">cloudwatchLogsRetention</a></code> | <code>aws-cdk-lib.aws_logs.RetentionDays</code> | How long to retain logs published to CloudWatch logs. |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.cwNamespace">cwNamespace</a></code> | <code>string</code> | The CloudWatch namespace to publish metrics to. |
 | <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.publishFrequency">publishFrequency</a></code> | <code>number</code> | Time intervals that Lambda will be triggered to publish metric in CloudWatch. |
+| <code><a href="#@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.regions">regions</a></code> | <code>string[]</code> | List of AWS regions to publish ENI usage metrics for. |
+
+---
+
+##### `cloudwatchLogsRetention`<sup>Optional</sup> <a name="cloudwatchLogsRetention" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.cloudwatchLogsRetention"></a>
+
+```typescript
+public readonly cloudwatchLogsRetention: RetentionDays;
+```
+
+- *Type:* aws-cdk-lib.aws_logs.RetentionDays
+- *Default:* aws_logs.RetentionDays.ONE_WEEK
+
+How long to retain logs published to CloudWatch logs.
+
+---
+
+##### `cwNamespace`<sup>Optional</sup> <a name="cwNamespace" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.cwNamespace"></a>
+
+```typescript
+public readonly cwNamespace: string;
+```
+
+- *Type:* string
+- *Default:* 'LambdaHyperplaneEniUsage'
+
+The CloudWatch namespace to publish metrics to.
 
 ---
 
@@ -169,6 +224,19 @@ public readonly publishFrequency: number;
 - *Default:* 1
 
 Time intervals that Lambda will be triggered to publish metric in CloudWatch.
+
+---
+
+##### `regions`<sup>Optional</sup> <a name="regions" id="@time-loop/cdk-lambda-eni-usage-metric-publisher.LambdaEniUsageMetricPublisherProps.property.regions"></a>
+
+```typescript
+public readonly regions: string[];
+```
+
+- *Type:* string[]
+- *Default:* ['us-east-1']
+
+List of AWS regions to publish ENI usage metrics for.
 
 ---
 

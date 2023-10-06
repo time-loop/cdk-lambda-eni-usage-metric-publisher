@@ -1,4 +1,3 @@
-import { join } from 'path';
 import {
   aws_iam,
   aws_lambda,
@@ -13,64 +12,91 @@ import { Namer } from 'multi-convention-namer';
 
 export interface LambdaEniUsageMetricPublisherProps {
   /**
+   * How long to retain logs published to CloudWatch logs.
+   * @default aws_logs.RetentionDays.ONE_WEEK
+   */
+  readonly cloudwatchLogsRetention?: aws_logs.RetentionDays;
+  /**
+   * The CloudWatch namespace to publish metrics to.
+   * @default 'LambdaHyperplaneEniUsage'
+   */
+  readonly cwNamespace?: string;
+  /**
    * Time intervals that Lambda will be triggered to publish metric in CloudWatch.
    * @default 1
    */
   readonly publishFrequency?: number;
+  /**
+   * List of AWS regions to publish ENI usage metrics for.
+   * @default ['us-east-1']
+   */
+  readonly regions?: string[];
 }
 
 /**
- * LambdaEniUsageMetricPublisher is a construct that creates a Lambda function that publishes ENI usage metric to CloudWatch.
- * The Lambda function is triggered by an EventBridge rule according to the publishFrequency prop.
- * @constructor
- * @param {Construct} scope - the parent Construct instantiating this construct.
- * @param {Namer} id - the unique identifier for this construct.
- * @param {LambdaEniUsageMetricPublisherProps} props - the properties for this construct.
- * @param {number} [props.publishFrequency=1] - the time intervals that Lambda will be triggered to publish metric in CloudWatch.
+ * A construct that creates an AWS Lambda function to publish ENI usage metrics to CloudWatch.
  */
 export class LambdaEniUsageMetricPublisher extends Construct {
-  readonly publishFrequency?: number;
+  readonly publishFrequency: number;
+  readonly regions: string[];
   readonly handler: aws_lambda_nodejs.NodejsFunction;
   readonly rule: aws_events.Rule;
+  readonly cwNamespace: string;
+
+  /**
+   * Creates a new instance of LambdaEniUsageMetricPublisher.
+   * @param scope The parent construct.
+   * @param id The ID of the construct.
+   * @param props The properties of the construct.
+   */
 
   constructor(scope: Construct, id: Namer, props: LambdaEniUsageMetricPublisherProps) {
     super(scope, id.pascal);
-
-    // CDK code that creates the Lambda function, the EventBridge rul that triggers this according the publishFrequency prop. The lambda function will publish the metric to CloudWatch.
+    this.publishFrequency = props.publishFrequency ?? 1;
+    this.regions = props.regions ?? ['us-east-1'];
+    this.cwNamespace = props.cwNamespace ?? 'LambdaHyperplaneEniUsage';
     const myConstruct = this;
-    this.publishFrequency = props.publishFrequency;
-    function eniUsageMetricPublisherHandler(handler: string): aws_lambda_nodejs.NodejsFunction {
-      const fn = new aws_lambda_nodejs.NodejsFunction(myConstruct, `EniUsageMetricPublisher${handler}`, {
+
+    function eniUsageMetricPublisherHandler(handler: string, cwNamespace: string): aws_lambda_nodejs.NodejsFunction {
+      const fn = new aws_lambda_nodejs.NodejsFunction(myConstruct, handler, {
         bundling: {
-          externalModules: ['aws-lambda'], // Lambda is just types
+          externalModules: ['aws-lambda'],
           minify: true,
         },
-        entry: join(__dirname, 'lambda.eni-usage-metric-publisher.ts'),
         handler,
-        runtime: aws_lambda.Runtime.NODEJS_14_X,
-        logRetention: aws_logs.RetentionDays.ONE_WEEK,
+        runtime: aws_lambda.Runtime.NODEJS_18_X,
+        logRetention: props.cloudwatchLogsRetention ?? aws_logs.RetentionDays.ONE_WEEK,
         memorySize: 512,
-        tracing: aws_lambda.Tracing.ACTIVE,
+        timeout: Duration.seconds(45),
       });
 
       [
         new aws_iam.PolicyStatement({
-          actions: ['ec2:DescribeNetworkInterfaces'],
+          actions: ['ec2:DescribeNetworkInterfaces', 'ec2:DescribeVpcs'],
           resources: ['*'],
         }),
         new aws_iam.PolicyStatement({
           actions: ['cloudwatch:PutMetricData'],
           resources: ['*'],
+          conditions: {
+            StringEquals: {
+              'cloudwatch:namespace': props.cwNamespace ?? cwNamespace,
+            },
+          },
         }),
       ].forEach((policy) => fn.addToRolePolicy(policy));
 
       return fn;
     }
-    this.handler = eniUsageMetricPublisherHandler('handler');
-    this.rule = new aws_events.Rule(this, 'Rule', {
-      schedule: aws_events.Schedule.rate(Duration.minutes(this.publishFrequency ?? 1)),
-    });
 
+    this.handler = eniUsageMetricPublisherHandler('monitor', this.cwNamespace)
+      .addEnvironment('REGION_LIST', props.regions?.join(',') ?? this.regions.join(','))
+      .addEnvironment('CW_NAMESPACE', props.cwNamespace ?? this.cwNamespace);
+    //Review rule name
+
+    this.rule = new aws_events.Rule(this, 'rule', {
+      schedule: aws_events.Schedule.rate(Duration.minutes(this.publishFrequency)),
+    });
     this.rule.addTarget(new aws_events_targets.LambdaFunction(this.handler));
   }
 }
