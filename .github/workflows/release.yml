@@ -143,8 +143,8 @@ jobs:
         run: mv dist .repo
       - name: Install Dependencies
         run: cd .repo && pnpm i --frozen-lockfile
-      - name: Remove .npmrc file for release
-        run: rm .npmrc
+      - name: Remove ~/.npmrc file for release
+        run: rm ~/.npmrc || true
       - name: Create js artifact
         run: cd .repo && npx projen package:js
       - name: Collect js Artifact
