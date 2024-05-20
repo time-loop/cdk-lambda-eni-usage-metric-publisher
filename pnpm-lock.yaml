@@ -14,10 +14,10 @@ importers:
     devDependencies:
       '@aws-cdk/integ-runner':
         specifier: latest
-        version: 2.141.0-alpha.0
+        version: 2.142.1-alpha.0
       '@aws-cdk/integ-tests-alpha':
         specifier: latest
-        version: 2.141.0-alpha.0(aws-cdk-lib@2.105.0(constructs@10.0.5))(constructs@10.0.5)
+        version: 2.142.1-alpha.0(aws-cdk-lib@2.105.0(constructs@10.0.5))(constructs@10.0.5)
       '@aws-sdk/client-cloudwatch':
         specifier: ^3.515.0
         version: 3.574.0
@@ -40,8 +40,8 @@ importers:
         specifier: 2.105.0
         version: 2.105.0(constructs@10.0.5)
       aws-sdk-mock:
-        specifier: ^5.9.0
-        version: 5.9.0
+        specifier: ^6.0.1
+        version: 6.0.1
       constructs:
         specifier: 10.0.5
         version: 10.0.5
@@ -127,16 +127,16 @@ packages:
   '@aws-cdk/aws-service-spec@0.1.1':
     resolution: {integrity: sha512-1+GbqfWISM1jy1ILNe1/XuS/ytZ6rG3nkI1FfDe+JmGiwiA+VgseDa0v6pPf2DBUx7W2bwWpE7nRiZiM1hWWyQ==}
 
-  '@aws-cdk/integ-runner@2.141.0-alpha.0':
-    resolution: {integrity: sha512-4HMTe7INnyOGJW6ubV8T4nsUrhZUOqmjeA02Mpxon3eQcbTpkzMgDsuPYJ3ajqijs1aG1TjH8nFgnShLbij4qA==}
+  '@aws-cdk/integ-runner@2.142.1-alpha.0':
+    resolution: {integrity: sha512-51tCTaSkredVFUXAMtpY4tB/yCZ1kdKhTYjjIq9oRq602BcDXioVO0qhG+zWvHxR2xm8omPzsgHophNk0Ik55w==}
     engines: {node: '>= 14.15.0'}
     hasBin: true
 
-  '@aws-cdk/integ-tests-alpha@2.141.0-alpha.0':
-    resolution: {integrity: sha512-FYfXQSbsuzQANeN4jQD3jIyoHEbqRpdzl53OYJfbnq/OnfE7B94Lqzm/jQ+WvCi0HQzRmmyFnBh/5YDNQKH/AQ==}
+  '@aws-cdk/integ-tests-alpha@2.142.1-alpha.0':
+    resolution: {integrity: sha512-TbTVISb8afiQ6QuT6my7ox94/Zie+Nb14rtvxWamCynXaW3xWWA0xH2O7hXBDV5ENWqgueo/k2f+2QYG5DLCMA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
-      aws-cdk-lib: ^2.141.0
+      aws-cdk-lib: ^2.142.1
       constructs: ^10.0.0
 
   '@aws-cdk/service-spec-types@0.0.69':
@@ -1193,13 +1193,13 @@ packages:
       - table
       - yaml
 
-  aws-cdk@2.141.0:
-    resolution: {integrity: sha512-RM9uDiETBEKCHemItaRGVjOLwoZ5iqXnejpyXY7+YF75c2c0Ui7HSZI8QD0stDg3S/2UbLcKv2RA9dBsjrWUGA==}
+  aws-cdk@2.142.1:
+    resolution: {integrity: sha512-1ENZ2TY5/4uoPXat7vIzZIATdFGLy0UuqFeFU0AB/YFQqfTuSgsZRKYphpOi0zhcoDQ4rc8rPr/Dud+ZxXSc9Q==}
     engines: {node: '>= 14.15.0'}
     hasBin: true
 
-  aws-sdk-mock@5.9.0:
-    resolution: {integrity: sha512-kTUXaQQ1CTn3Cwxa2g1XqtCDq+FTEbPl/zgaYCok357f7gbWkeYEegqa5RziTRb11oNIUHrLp9DSHwZT3XdBkA==}
+  aws-sdk-mock@6.0.1:
+    resolution: {integrity: sha512-QpOGjTixFsl2EtCR7DBNCjgllYyJGO0FRSRTWISfyi08ItddxOkked/cBMdHEFMR3SIpK6pQTe7pe6tyoVh23A==}
     engines: {node: '>=18.0.0'}
 
   aws-sdk@2.1618.0:
@@ -1361,7 +1361,7 @@ packages:
     resolution: {integrity: sha512-zHig5N+tPWARooBnb0Zx1MFcdfpyJrfTJ3Y5L+IFvUm8rM74hHz66z0gw0x4tijh5CorKkKUCnW82R2vmpeCRA==}
 
   concat-map@0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
   concat-stream@2.0.0:
     resolution: {integrity: sha512-MWufYdFw53ccGjCA+Ol7XJYpAlW6/prSMzuPOTRnJGcGzuhLn4Scrz7qf6o8bROZ514ltazcIFJZevcfbo0x7A==}
@@ -1762,7 +1762,7 @@ packages:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
 
   events@1.1.1:
-    resolution: {integrity: sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=}
+    resolution: {integrity: sha512-kEcvvCBByWXGnZy6JUlgAp2gBIUjfCAV6P6TgT1/aaQKcmuAEC4OZTV1I4EWQLz2gxZw76atuVyvHhTxvi0Flw==}
     engines: {node: '>=0.4.x'}
 
   execa@5.1.1:
@@ -2851,7 +2851,7 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
 
   querystring@0.2.0:
-    resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
+    resolution: {integrity: sha512-X/xY82scca2tau62i9mDyU9K+I+djTMUsvwf7xnUX5GLvVzgJybOJf4Y6o9Zx3oJK/LSXg5tTZBjwzqVPaPO2g==}
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
 
@@ -3011,6 +3011,7 @@ packages:
 
   sinon@17.0.2:
     resolution: {integrity: sha512-uihLiaB9FhzesElPDFZA7hDcNABzsVHwr3YfmM9sBllVwab3l0ltGlRV1XhpNfIacNDLGD1QRZNLs5nU5+hTuA==}
+    deprecated: There
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
@@ -3305,8 +3306,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.5.0-dev.20240515:
-    resolution: {integrity: sha512-l2Rtvs3xAcEVgF5wOML5AASB79iMHrw9RGXEMY/oeV11IwP0nxOtB1Q5fLvmdPkbsP0PKeTfvd46sOWRATqAiA==}
+  typescript@5.5.0-dev.20240519:
+    resolution: {integrity: sha512-WCk836BrP8utieqEbEyKVh/4OkykqhDWO/NsjCp9g9Jm2YyK4yYI7MBOHvcDYZmo4x7e0i9/eLnu4Fcuzv/utw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3339,7 +3340,7 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
   url@0.10.3:
-    resolution: {integrity: sha1-Ah5NnHcF8hu/N9A861h2dAJ3TGQ=}
+    resolution: {integrity: sha512-hzSUW2q06EqL1gKM/a+obYHLIO6ct2hwPuviqTTOcfFVc61UbfJ2Q32+uGL/HCPxKqrdGB5QUwIe7UqlDgwsOQ==}
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -3476,14 +3477,14 @@ snapshots:
       '@aws-cdk/service-spec-types': 0.0.69
       '@cdklabs/tskb': 0.0.3
 
-  '@aws-cdk/integ-runner@2.141.0-alpha.0':
+  '@aws-cdk/integ-runner@2.142.1-alpha.0':
     dependencies:
       '@aws-cdk/aws-service-spec': 0.1.1
-      aws-cdk: 2.141.0
+      aws-cdk: 2.142.1
     optionalDependencies:
       fsevents: 2.3.2
 
-  '@aws-cdk/integ-tests-alpha@2.141.0-alpha.0(aws-cdk-lib@2.105.0(constructs@10.0.5))(constructs@10.0.5)':
+  '@aws-cdk/integ-tests-alpha@2.142.1-alpha.0(aws-cdk-lib@2.105.0(constructs@10.0.5))(constructs@10.0.5)':
     dependencies:
       aws-cdk-lib: 2.105.0(constructs@10.0.5)
       constructs: 10.0.5
@@ -5130,11 +5131,11 @@ snapshots:
       '@aws-cdk/asset-node-proxy-agent-v6': 2.0.3
       constructs: 10.0.5
 
-  aws-cdk@2.141.0:
+  aws-cdk@2.142.1:
     optionalDependencies:
       fsevents: 2.3.2
 
-  aws-sdk-mock@5.9.0:
+  aws-sdk-mock@6.0.1:
     dependencies:
       aws-sdk: 2.1618.0
       sinon: 17.0.2
@@ -5591,7 +5592,7 @@ snapshots:
     dependencies:
       semver: 7.6.2
       shelljs: 0.8.5
-      typescript: 5.5.0-dev.20240515
+      typescript: 5.5.0-dev.20240519
 
   electron-to-chromium@1.4.763: {}
 
@@ -7654,7 +7655,7 @@ snapshots:
 
   typescript@5.3.3: {}
 
-  typescript@5.5.0-dev.20240515: {}
+  typescript@5.5.0-dev.20240519: {}
 
   uglify-js@3.17.4:
     optional: true
