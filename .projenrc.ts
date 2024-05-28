@@ -15,8 +15,8 @@ const project = new clickupCdk.ClickUpCdkConstructLibrary({
   pnpmVersion: '9',
   repositoryUrl: `https://github.com/time-loop/${name}.git`,
 
-  bundledDeps: ['aws-sdk'],
-  devDeps: ['@time-loop/clickup-projen', '@aws-cdk/integ-tests-alpha', 'aws-sdk-mock', '@aws-sdk/client-cloudwatch'],
+  bundledDeps: ['@aws-sdk/client-cloudwatch', '@aws-sdk/client-ec2'],
+  devDeps: ['@time-loop/clickup-projen', '@aws-cdk/integ-tests-alpha', 'aws-sdk-client-mock'],
   peerDeps: ['multi-convention-namer'],
 });
 

@@ -1,7 +1,9 @@
 /**
  * The Lambda function resource is managed from lambda-eni-usage-metric-publisher.ts
  */
-import * as AWS from 'aws-sdk';
+import { CloudWatch, PutMetricDataCommand, PutMetricDataCommandOutput } from '@aws-sdk/client-cloudwatch';
+import { DescribeNetworkInterfacesCommand, DescribeVpcsCommand, EC2 } from '@aws-sdk/client-ec2';
+
 export interface Result {
   region: string;
   vpcId: string;
@@ -31,8 +33,8 @@ export const monitor = async () => {
 
     for (const region of regions) {
       const vpcCounts: { [key: string]: number } = {};
-      const ec2Client = new AWS.EC2({ region });
-      const { Vpcs = [] } = await ec2Client.describeVpcs().promise();
+      const ec2Client = new EC2({ region });
+      const { Vpcs = [] } = await ec2Client.send(new DescribeVpcsCommand());
 
       const vpcIds = Vpcs.map((vpc) => vpc.VpcId).filter((vpcId) => !!vpcId) as string[];
       const params = {
@@ -42,7 +44,7 @@ export const monitor = async () => {
           { Name: 'interface-type', Values: ['lambda'] },
         ],
       };
-      const { NetworkInterfaces = [] } = await ec2Client.describeNetworkInterfaces(params).promise();
+      const { NetworkInterfaces = [] } = await ec2Client.send(new DescribeNetworkInterfacesCommand(params));
       NetworkInterfaces.forEach(({ VpcId }) => {
         if (VpcId) {
           if (vpcCounts[VpcId]) {
@@ -63,33 +65,35 @@ export const monitor = async () => {
       });
     }
 
-    const cloudwatch = new AWS.CloudWatch();
-    results.forEach((result) => {
-      const dimensions = [
-        // We use AwsRegion instead of Region because Datadog mixes the region label we send with the region where the metric is stored.
-        { Name: 'AwsRegion', Value: result.region },
-        { Name: 'VpcId', Value: result.vpcId },
-      ];
-      const metricData = [
-        {
-          MetricName: 'NetworkInterfaceCount',
-          Dimensions: dimensions,
-          Unit: 'Count',
-          Value: result.count,
-        },
-      ];
-      const params = {
-        Namespace: cwNamespace,
-        MetricData: metricData,
-      };
-      cloudwatch.putMetricData(params, (err) => {
-        if (err) {
-          throw err;
-        } else {
-          console.log(`Successfully pushed metric data to namespace ${cwNamespace} - ${metricData}`);
-        }
-      });
+    const cloudwatch = new CloudWatch();
+    const pushes: Promise<PutMetricDataCommandOutput>[] = [];
+    results.forEach(async (result) => {
+      try {
+        pushes.push(
+          cloudwatch.send(
+            new PutMetricDataCommand({
+              Namespace: cwNamespace,
+              MetricData: [
+                {
+                  MetricName: 'NetworkInterfaceCount',
+                  Dimensions: [
+                    // We use AwsRegion instead of Region because Datadog mixes the region label we send with the region where the metric is stored.
+                    { Name: 'AwsRegion', Value: result.region },
+                    { Name: 'VpcId', Value: result.vpcId },
+                  ],
+                  Unit: 'Count',
+                  Value: result.count,
+                },
+              ],
+            }),
+          ),
+        );
+      } catch (error) {
+        console.error('Error publishing metric data for region');
+        throw error;
+      }
     });
+    await Promise.all(pushes);
     if (results.length === 0) {
       console.log('No results to publish');
     } else {
