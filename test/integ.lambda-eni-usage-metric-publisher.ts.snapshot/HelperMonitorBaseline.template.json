@@ -64,11 +64,6 @@
      "S3Bucket": "cdk-hnb659fds-assets-425845004253-us-west-2",
      "S3Key": "37231ca83f919b9c65a09b58c3acfe654be1fb1ab644f9e198c2011b93839495.zip"
     },
-    "Environment": {
-     "Variables": {
-      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
-     }
-    },
     "Handler": "index.handler",
     "Role": {
      "Fn::GetAtt": [
@@ -153,12 +148,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-425845004253-us-west-2",
-     "S3Key": "5cbd37aaacad45f07b06027e04450cb0aa111cb18358ff5134b50122a8d47a97.zip"
-    },
-    "Environment": {
-     "Variables": {
-      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
-     }
+     "S3Key": "ef56709e7dd67a376c2849207806b59ec1e57f3b5d183041502d20a47e1e50de.zip"
     },
     "FunctionName": "GetEniIntegRunnerFunction",
     "Handler": "index.handler",

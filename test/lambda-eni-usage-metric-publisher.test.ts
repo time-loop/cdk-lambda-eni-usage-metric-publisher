@@ -5,15 +5,15 @@ import { LambdaEniUsageMetricPublisher, LambdaEniUsageMetricPublisherProps } fro
 
 let app: App;
 let stack: Stack;
-
 let template: Template;
-let defaultLambdaEniUsageMetricPublisherProps: LambdaEniUsageMetricPublisherProps = {
+let lambdaEniUsageMetricPublisher: LambdaEniUsageMetricPublisher;
+
+const defaultLambdaEniUsageMetricPublisherProps: LambdaEniUsageMetricPublisherProps = {
   publishFrequency: 1,
   regions: ['us-east-1'],
   cwNamespace: 'LambdaHyperplaneEniUsage',
   cloudwatchLogsRetention: 7,
 };
-let lambdaEniUsageMetricPublisher: LambdaEniUsageMetricPublisher;
 
 const createLambdaEniUsageMetricPublisher = function (id: string, props?: LambdaEniUsageMetricPublisherProps) {
   lambdaEniUsageMetricPublisher = new LambdaEniUsageMetricPublisher(
@@ -26,7 +26,7 @@ const createLambdaEniUsageMetricPublisher = function (id: string, props?: Lambda
 
 describe('LambdaEniUsageMetricPublisher', () => {
   describe('default', () => {
-    beforeAll(() => {
+    beforeEach(() => {
       app = new App();
       stack = new Stack(app, 'test');
     });
@@ -37,8 +37,7 @@ describe('LambdaEniUsageMetricPublisher', () => {
       expect(lambdaEniUsageMetricPublisher.regions).toEqual(['us-east-1']);
     });
     it('creates resources with default props', () => {
-      defaultLambdaEniUsageMetricPublisherProps = {};
-      createLambdaEniUsageMetricPublisher('noProps', defaultLambdaEniUsageMetricPublisherProps);
+      createLambdaEniUsageMetricPublisher('noProps', {});
       template.resourceCountIs('AWS::Lambda::Function', 2);
       expect(lambdaEniUsageMetricPublisher.publishFrequency).toEqual(1);
       expect(lambdaEniUsageMetricPublisher.regions).toEqual(['us-east-1']);

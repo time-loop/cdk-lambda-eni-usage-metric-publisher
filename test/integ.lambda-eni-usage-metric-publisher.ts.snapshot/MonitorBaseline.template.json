@@ -70,11 +70,10 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-425845004253-us-west-2",
-     "S3Key": "bdd6784e0615ce2d81924d248cbffdde2bb0c6c054152f144503ff69090af5c1.zip"
+     "S3Key": "eeb266c5fc5698820230df546eb36e7ba194f0cf8d19dc861c613b79531c6955.zip"
     },
     "Environment": {
      "Variables": {
-      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
       "REGION_LIST": "us-west-2",
       "CW_NAMESPACE": "LambdaHyperplaneEniUsage"
      }
@@ -214,11 +213,11 @@
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Handler": "index.handler",
-    "Runtime": "nodejs18.x",
+    "Runtime": "nodejs20.x",
     "Timeout": 900,
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-425845004253-us-west-2",
-     "S3Key": "5bc602ecde93c947efe5899ae355f999986a1acbe610b1c0b9c468d738857555.zip"
+     "S3Key": "2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d.zip"
     },
     "Role": {
      "Fn::GetAtt": [
