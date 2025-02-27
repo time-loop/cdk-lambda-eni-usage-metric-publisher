@@ -17,10 +17,10 @@ importers:
     devDependencies:
       '@aws-cdk/integ-runner':
         specifier: latest
-        version: 2.178.1-alpha.0
+        version: 2.181.0-alpha.0
       '@aws-cdk/integ-tests-alpha':
         specifier: latest
-        version: 2.178.1-alpha.0(aws-cdk-lib@2.178.1(constructs@10.0.5))(constructs@10.0.5)
+        version: 2.181.0-alpha.0(aws-cdk-lib@2.178.1(constructs@10.0.5))(constructs@10.0.5)
       '@time-loop/clickup-projen':
         specifier: ^1.18.0
         version: 1.18.0(projen@0.91.8(constructs@10.0.5))
@@ -55,8 +55,8 @@ importers:
         specifier: ^9
         version: 9.20.1
       eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.20.1)
+        specifier: ^10.0.2
+        version: 10.0.2(eslint@9.20.1)
       eslint-import-resolver-typescript:
         specifier: ^3.6.1
         version: 3.6.1(@typescript-eslint/parser@8.24.0(eslint@9.20.1)(typescript@5.7.3))(eslint-plugin-import@2.29.1)(eslint@9.20.1)
@@ -65,7 +65,7 @@ importers:
         version: 2.29.1(@typescript-eslint/parser@8.24.0(eslint@9.20.1)(typescript@5.7.3))(eslint-import-resolver-typescript@3.6.1)(eslint@9.20.1)
       eslint-plugin-prettier:
         specifier: ^5.1.3
-        version: 5.1.3(eslint-config-prettier@9.1.0(eslint@9.20.1))(eslint@9.20.1)(prettier@3.2.5)
+        version: 5.1.3(eslint-config-prettier@10.0.2(eslint@9.20.1))(eslint@9.20.1)(prettier@3.2.5)
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@18.19.33)(ts-node@10.9.2(@types/node@18.19.33)(typescript@5.7.3))
@@ -127,8 +127,8 @@ packages:
   '@aws-cdk/asset-node-proxy-agent-v6@2.1.0':
     resolution: {integrity: sha512-7bY3J8GCVxLupn/kNmpPc5VJz8grx+4RKfnnJiO1LG+uxkZfANZG3RMHhE+qQxxwkyQ9/MfPtTpf748UhR425A==}
 
-  '@aws-cdk/aws-service-spec@0.1.51':
-    resolution: {integrity: sha512-9EQBahUhfg7HYvgiB3CRdEXoc0VPej4SprcdBa1wuF/f8nJOd3R2hrcQuMKfU+UpZJ5VBF+xoKDcEvbiXu8B6g==}
+  '@aws-cdk/aws-service-spec@0.1.59':
+    resolution: {integrity: sha512-OzCUYS6d5N+mFQRHH2QXtJp1+Ff08a1Z2UDW4wyPzIf1pi8sEltUzhvAqZUbZFA1Uq5210vTjmr/4WX2aoxqiw==}
 
   '@aws-cdk/cloud-assembly-schema@39.2.20':
     resolution: {integrity: sha512-RI7S8jphGA8mak154ElnEJQPNTTV4PZmA7jgqnBBHQGyOPJIXxtACubNQ5m4YgjpkK3UJHsWT+/cOAfM/Au/Wg==}
@@ -136,20 +136,20 @@ packages:
       - jsonschema
       - semver
 
-  '@aws-cdk/integ-runner@2.178.1-alpha.0':
-    resolution: {integrity: sha512-M1Q2dKoY+RX4KQk2ubD3dvmsSTFABOiPLsed0BqpF3p07sk9M2Jc/flIEWYMCzEXJhkeWmyLNsyUrGdPTH6eGQ==}
+  '@aws-cdk/integ-runner@2.181.0-alpha.0':
+    resolution: {integrity: sha512-dNhzZ7a4bEm8mlXZQxUI4PNQuLREL70/Gr01XB4x489c/rk3q5+yaseLr5TwDffvLet4jB/zOzJ0zeOx0KYB+w==}
     engines: {node: '>= 14.15.0'}
     hasBin: true
 
-  '@aws-cdk/integ-tests-alpha@2.178.1-alpha.0':
-    resolution: {integrity: sha512-Ha/iKkIVu0CE81+oUQsyxL9ipVFMoYu45j/HjHjgqkRBIrrjl2M7BTIAXGlwcSKcnpiA8Jhj9WMYgvBDJoF/gA==}
+  '@aws-cdk/integ-tests-alpha@2.181.0-alpha.0':
+    resolution: {integrity: sha512-U/aClnG3lNXMh6o4QPm3mPBGCeqlr4A8QSdTvfBBQxxq1XZZUzxByODPNmCDzo3yiNfqvOKZZb6FfIw6R6HYzw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
-      aws-cdk-lib: ^2.178.1
+      aws-cdk-lib: ^2.181.0
       constructs: ^10.0.0
 
-  '@aws-cdk/service-spec-types@0.0.117':
-    resolution: {integrity: sha512-2hMV1i2GtBPCEkZw7gsdiAeTbfMpOXGTD2jh4okiFIvQBDXoKXqL29e7Z4J9pA4KLhNA24SecmFxiiHXhPJ3tA==}
+  '@aws-cdk/service-spec-types@0.0.125':
+    resolution: {integrity: sha512-WUJMKzL4v9alzJtfdBXMH2hxtwrfk6H5RXjiYaF8SS5L2Aq/zk7TywkYaPf9OjI+39k9oIrrm/8cGv1XvAa0SQ==}
 
   '@aws-crypto/ie11-detection@3.0.0':
     resolution: {integrity: sha512-341lBBkiY1DfDNKai/wXM3aujNBkXR7tq1URPQDL9wi3AUbI80NR74uF1TXHMm7po1AcnFk8iu2S2IeU/+/A+Q==}
@@ -1456,7 +1456,6 @@ packages:
   constructs@10.0.5:
     resolution: {integrity: sha512-IwOwekzrASFC3qt4ozCtV09rteAIAesuCGsW0p+uBfqHd2XcvA5CXqJjgf4eUqm6g8e/noXlVCMDWwC8GaLtrg==}
     engines: {node: '>= 10.17.0'}
-    bundledDependencies: []
 
   conventional-changelog-angular@6.0.0:
     resolution: {integrity: sha512-6qLgrBF4gueoC7AFVHu51nHL9pF9FRjXrH+ceVf7WmAfH3gs+gEYOkvxhjMPjZu57I4AGUGoNTY8V7Hrgf1uqg==}
@@ -1756,8 +1755,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@10.0.2:
+    resolution: {integrity: sha512-1105/17ZIMjmCOJOPNfVdbXafLCLj3hPmkmB7dLgt7XsQ/zkxSuDerE/xgO3RxoHysR1N1whmquY0lSn2O0VLg==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -3622,26 +3621,26 @@ snapshots:
 
   '@aws-cdk/asset-node-proxy-agent-v6@2.1.0': {}
 
-  '@aws-cdk/aws-service-spec@0.1.51':
+  '@aws-cdk/aws-service-spec@0.1.59':
     dependencies:
-      '@aws-cdk/service-spec-types': 0.0.117
+      '@aws-cdk/service-spec-types': 0.0.125
       '@cdklabs/tskb': 0.0.3
 
   '@aws-cdk/cloud-assembly-schema@39.2.20': {}
 
-  '@aws-cdk/integ-runner@2.178.1-alpha.0':
+  '@aws-cdk/integ-runner@2.181.0-alpha.0':
     dependencies:
-      '@aws-cdk/aws-service-spec': 0.1.51
+      '@aws-cdk/aws-service-spec': 0.1.59
       aws-cdk: 2.178.1
     optionalDependencies:
       fsevents: 2.3.2
 
-  '@aws-cdk/integ-tests-alpha@2.178.1-alpha.0(aws-cdk-lib@2.178.1(constructs@10.0.5))(constructs@10.0.5)':
+  '@aws-cdk/integ-tests-alpha@2.181.0-alpha.0(aws-cdk-lib@2.178.1(constructs@10.0.5))(constructs@10.0.5)':
     dependencies:
       aws-cdk-lib: 2.178.1(constructs@10.0.5)
       constructs: 10.0.5
 
-  '@aws-cdk/service-spec-types@0.0.117':
+  '@aws-cdk/service-spec-types@0.0.125':
     dependencies:
       '@cdklabs/tskb': 0.0.3
 
@@ -5985,7 +5984,7 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-config-prettier@9.1.0(eslint@9.20.1):
+  eslint-config-prettier@10.0.2(eslint@9.20.1):
     dependencies:
       eslint: 9.20.1
 
@@ -6052,14 +6051,14 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0(eslint@9.20.1))(eslint@9.20.1)(prettier@3.2.5):
+  eslint-plugin-prettier@5.1.3(eslint-config-prettier@10.0.2(eslint@9.20.1))(eslint@9.20.1)(prettier@3.2.5):
     dependencies:
       eslint: 9.20.1
       prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     optionalDependencies:
-      eslint-config-prettier: 9.1.0(eslint@9.20.1)
+      eslint-config-prettier: 10.0.2(eslint@9.20.1)
 
   eslint-scope@8.2.0:
     dependencies:
