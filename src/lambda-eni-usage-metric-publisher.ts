@@ -1,4 +1,12 @@
-import { aws_iam, aws_lambda_nodejs, aws_events, aws_events_targets, aws_logs, Duration } from 'aws-cdk-lib';
+import {
+  aws_iam,
+  aws_lambda,
+  aws_lambda_nodejs,
+  aws_events,
+  aws_events_targets,
+  aws_logs,
+  Duration,
+} from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Namer } from 'multi-convention-namer';
 
@@ -57,6 +65,7 @@ export class LambdaEniUsageMetricPublisher extends Construct {
       handler: 'monitor',
       logRetention: props.cloudwatchLogsRetention ?? aws_logs.RetentionDays.THREE_MONTHS,
       memorySize: 512,
+      runtime: aws_lambda.determineLatestNodeRuntime(this),
       timeout: Duration.seconds(45),
     });
 

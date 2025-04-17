@@ -28,7 +28,7 @@ describe('LambdaEniUsageMetricPublisher', () => {
   describe('default', () => {
     beforeEach(() => {
       app = new App();
-      stack = new Stack(app, 'test');
+      stack = new Stack(app, 'test', { env: { region: 'us-east-1' } });
     });
     it('creates resources', () => {
       createLambdaEniUsageMetricPublisher('defaultProps', defaultLambdaEniUsageMetricPublisherProps);
