@@ -1,7 +1,8 @@
 {
-  "version": "39.0.0",
+  "version": "41.0.0",
   "files": {
     "37231ca83f919b9c65a09b58c3acfe654be1fb1ab644f9e198c2011b93839495": {
+      "displayName": "DummyFunction/Code",
       "source": {
         "path": "asset.37231ca83f919b9c65a09b58c3acfe654be1fb1ab644f9e198c2011b93839495",
         "packaging": "zip"
@@ -16,6 +17,7 @@
       }
     },
     "ef56709e7dd67a376c2849207806b59ec1e57f3b5d183041502d20a47e1e50de": {
+      "displayName": "GetEniIntegRunnerFunction/Code",
       "source": {
         "path": "asset.ef56709e7dd67a376c2849207806b59ec1e57f3b5d183041502d20a47e1e50de",
         "packaging": "zip"
@@ -30,6 +32,7 @@
       }
     },
     "260bf5883cbff3ec5394f7b6a240035f0869c31eb958e1fc2ea4588e369d662d": {
+      "displayName": "HelperMonitorBaseline Template",
       "source": {
         "path": "HelperMonitorBaseline.template.json",
         "packaging": "file"

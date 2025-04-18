@@ -1,5 +1,5 @@
 {
-  "version": "39.0.0",
+  "version": "43.0.0",
   "artifacts": {
     "MonitorBaseline.assets": {
       "type": "cdk:asset-manifest",
@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::425845004253:role/cdk-hnb659fds-deploy-role-425845004253-us-west-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::425845004253:role/cdk-hnb659fds-cfn-exec-role-425845004253-us-west-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-425845004253-us-west-2/17dba40a5e307ab22063c81d98b7a2fe2ea11b26af4217663ccaa36938e6ccd4.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-425845004253-us-west-2/67e07d8fca5a17536e8cba288e7303fb945c022d4c6335720153afa578cd02f1.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -51,8 +51,8 @@
               "handler": "*",
               "logRetention": 90,
               "memorySize": "*",
-              "timeout": "*",
               "runtime": "*",
+              "timeout": "*",
               "code": "*"
             }
           },
@@ -66,6 +66,7 @@
               "handler": "*",
               "logRetention": 90,
               "memorySize": "*",
+              "runtime": "*",
               "timeout": "*"
             }
           },
@@ -636,7 +637,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6207099229c09723d39529e530f1de67da76069116917d1fe095bc670a498a44.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/b90f5e7ed868a30dbc24b06bf01562165033b071dd2ff9415ce64f1cf26b2b64.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -740,5 +741,6 @@
         "lookupRoleArn": "arn:${AWS::Partition}:iam::425845004253:role/cdk-hnb659fds-lookup-role-425845004253-us-west-2"
       }
     }
-  ]
+  ],
+  "minimumCliVersion": "2.1008.0"
 }
