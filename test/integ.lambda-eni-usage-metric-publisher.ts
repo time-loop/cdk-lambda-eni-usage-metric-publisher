@@ -3,8 +3,8 @@ import { ExpectedResult, IntegTest } from '@aws-cdk/integ-tests-alpha';
 import { App, Stack, StackProps, aws_lambda_nodejs, aws_ec2, Duration, aws_iam } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Namer } from 'multi-convention-namer';
-import { IntegTestResources } from './utils/integ-tests-types';
 import { LambdaEniUsageMetricPublisher } from '../src';
+import { IntegTestResources } from './utils/integ-tests-types';
 // The BaselineStack creates an instance of LambdaEniUsageMetricPublisher
 export class BaselineStack extends Stack {
   readonly lambdaFunction: LambdaEniUsageMetricPublisher;
