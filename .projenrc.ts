@@ -1,5 +1,5 @@
 import { clickupCdk } from '@time-loop/clickup-projen';
-import { JsonPatch, javascript } from 'projen';
+import { JsonPatch } from 'projen';
 import { IntegTestResources } from './test/utils/integ-tests-types';
 
 const name = 'cdk-lambda-eni-usage-metric-publisher';
