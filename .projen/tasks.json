@@ -297,7 +297,7 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=latest --peer --no-deprecated --dep=dev,peer,prod,optional --filter=projen,@time-loop/clickup-projen"
+          "exec": "pnpm dlx npm-check-updates@18 --upgrade --target=latest --peer --no-deprecated --dep=dev,peer,prod,optional --filter=projen,@time-loop/clickup-projen"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
@@ -321,7 +321,7 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@aws-cdk/integ-tests-alpha,@time-loop/clickup-projen,@types/jest,aws-sdk-client-mock,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,jsii-release,prettier,projen,ts-jest,@aws-sdk/client-cloudwatch,@aws-sdk/client-ec2,multi-convention-namer"
+          "exec": "pnpm dlx npm-check-updates@18 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@aws-cdk/integ-tests-alpha,@time-loop/clickup-projen,@types/jest,aws-sdk-client-mock,esbuild,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,jsii-release,prettier,projen,ts-jest,@aws-sdk/client-cloudwatch,@aws-sdk/client-ec2,multi-convention-namer"
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
