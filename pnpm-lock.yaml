@@ -17,13 +17,13 @@ importers:
     devDependencies:
       '@aws-cdk/integ-runner':
         specifier: latest
-        version: 2.191.2
+        version: 2.192.1
       '@aws-cdk/integ-tests-alpha':
         specifier: latest
-        version: 2.221.1-alpha.0(aws-cdk-lib@2.189.0(constructs@10.0.5))(constructs@10.0.5)
+        version: 2.225.0-alpha.0(aws-cdk-lib@2.189.0(constructs@10.0.5))(constructs@10.0.5)
       '@time-loop/clickup-projen':
-        specifier: ^1.22.1
-        version: 1.22.1(projen@0.98.6(constructs@10.0.5))
+        specifier: ^1.23.0
+        version: 1.23.0(projen@0.98.11(constructs@10.0.5))
       '@types/jest':
         specifier: ^29.5.14
         version: 29.5.14
@@ -97,8 +97,8 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2
       projen:
-        specifier: ^0.98.6
-        version: 0.98.6(constructs@10.0.5)
+        specifier: ^0.98.11
+        version: 0.98.11(constructs@10.0.5)
       ts-jest:
         specifier: ^29.4.1
         version: 29.4.1(@babel/core@7.24.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.24.5))(esbuild@0.25.9)(jest-util@29.7.0)(jest@29.7.0(@types/node@18.19.33)(ts-node@10.9.2(@types/node@18.19.33)(typescript@5.7.3)))(typescript@5.7.3)
@@ -134,16 +134,16 @@ packages:
       - jsonschema
       - semver
 
-  '@aws-cdk/integ-runner@2.191.2':
-    resolution: {integrity: sha512-+R+UhIyQvQPqxAYFbrBWKKMAvk/3pHqo7PnhihYJD8jPpPY+Fb9tjOwOuH4m7SaB91KrcGN5llOSbvnUksEoVw==}
+  '@aws-cdk/integ-runner@2.192.1':
+    resolution: {integrity: sha512-RZleCR2+EMxW3dnGT+kyRX3uaTAhhUEtAC8CAJFqvY/SoUvob+CtM5AWIXLPhbwHhXNXjLIImoK0R0dLM558mA==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
-  '@aws-cdk/integ-tests-alpha@2.221.1-alpha.0':
-    resolution: {integrity: sha512-HCaplhEpv+Qe9cEvbRSFQx/HGL64Ftb5aYHCB4++RNUhL60mjkeRJRxSSW55dlOojLz7UBEzTkKKGo+CBnpsFA==}
+  '@aws-cdk/integ-tests-alpha@2.225.0-alpha.0':
+    resolution: {integrity: sha512-kaOT+YfiGPs3AQLcux7D8GLLHuYdMiOXW7f7RTS6TWeTFIVPL2ywo7U1GI7u+R4+cKChFaZGchpcstFgU721AQ==}
     engines: {node: '>= 18.0.0'}
     peerDependencies:
-      aws-cdk-lib: ^2.221.1
+      aws-cdk-lib: ^2.225.0
       constructs: ^10.0.0
 
   '@aws-cdk/service-spec-types@0.0.164':
@@ -1056,11 +1056,11 @@ packages:
     resolution: {integrity: sha512-mYqtQXPmrwvUljaHyGxYUIIRI3qjBTEb/f5QFi3A6VlxhpmZd5mWXn9W+qUkf2pVE1Hv3SqxefiZOPGdxmO64A==}
     engines: {node: '>=18.0.0'}
 
-  '@time-loop/clickup-projen@1.22.1':
-    resolution: {integrity: sha512-j8rJQJ4smvms0AJpz1RsJ4/Ny5+G/vDh1uQroBCbL9e/7yTvV24hLuPuVORFVRmfHeIzavMVZ6sooluvdW2DEQ==, tarball: https://npm.pkg.github.com/download/@time-loop/clickup-projen/1.22.1/d91517051179b157a69c621226a8c741373db1a6}
+  '@time-loop/clickup-projen@1.23.0':
+    resolution: {integrity: sha512-wqcKINGQ/zkgYfjs+Q1lWswuVXbVmFnc8c2WnAij3o1nl1Xkx2bU9ERRjqI+wk52fZtExdmJA7GzhR45yjbnlg==, tarball: https://npm.pkg.github.com/download/@time-loop/clickup-projen/1.23.0/687db9d6bdb990e9752aa2892e6cf3c9470097f0}
     engines: {node: '>= 18.17.1'}
     peerDependencies:
-      projen: ^0.98.3
+      projen: ^0.98.6
     bundledDependencies:
       - cson-parser
       - semver
@@ -1430,8 +1430,8 @@ packages:
       - yaml
       - mime-types
 
-  aws-cdk@2.1031.1:
-    resolution: {integrity: sha512-y/ovZDtOKvgJFtwE7NDFKRgJB3stgUUrAu6b31icuFO8+vnZ+4BIt0McQfbVR8ky5QOj2TW1G1sk55k8Yv+BnQ==}
+  aws-cdk@2.1032.0:
+    resolution: {integrity: sha512-OFvTnwPrRsFklmPdTAX1li9s6yBWknVlojVy7geuBeJyMZo3aNIe6sbINYjKagRNFhacidbz2RocM7LcwQVY7w==}
     engines: {node: '>= 18.0.0'}
     hasBin: true
 
@@ -3324,8 +3324,8 @@ packages:
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
 
-  projen@0.98.6:
-    resolution: {integrity: sha512-YR4tUn24D8BB16gGm3bjqVMj3NWbNG2sBmUv4M5Wvdv7t56hJ5Xo4fDGKVWzGGBvtSKIYtxC28gEt/4YXDKbwA==}
+  projen@0.98.11:
+    resolution: {integrity: sha512-4dSJFxs7rm9p0bffXjcLQ3HSRyRNpFtFDoyqxYFodxwDJXoZrDVFDAXgOqDWRTVX73bLtOSd7cZB6HPBk7QEMA==}
     engines: {node: '>= 16.0.0'}
     hasBin: true
     peerDependencies:
@@ -4111,14 +4111,14 @@ snapshots:
 
   '@aws-cdk/cloud-assembly-schema@41.2.0': {}
 
-  '@aws-cdk/integ-runner@2.191.2':
+  '@aws-cdk/integ-runner@2.192.1':
     dependencies:
       '@aws-cdk/aws-service-spec': 0.1.98
-      aws-cdk: 2.1031.1
+      aws-cdk: 2.1032.0
     optionalDependencies:
       fsevents: 2.3.2
 
-  '@aws-cdk/integ-tests-alpha@2.221.1-alpha.0(aws-cdk-lib@2.189.0(constructs@10.0.5))(constructs@10.0.5)':
+  '@aws-cdk/integ-tests-alpha@2.225.0-alpha.0(aws-cdk-lib@2.189.0(constructs@10.0.5))(constructs@10.0.5)':
     dependencies:
       aws-cdk-lib: 2.189.0(constructs@10.0.5)
       constructs: 10.0.5
@@ -5613,9 +5613,9 @@ snapshots:
       '@smithy/types': 4.3.2
       tslib: 2.8.1
 
-  '@time-loop/clickup-projen@1.22.1(projen@0.98.6(constructs@10.0.5))':
+  '@time-loop/clickup-projen@1.23.0(projen@0.98.11(constructs@10.0.5))':
     dependencies:
-      projen: 0.98.6(constructs@10.0.5)
+      projen: 0.98.11(constructs@10.0.5)
 
   '@tsconfig/node10@1.0.11': {}
 
@@ -5989,7 +5989,7 @@ snapshots:
       '@aws-cdk/cloud-assembly-schema': 41.2.0
       constructs: 10.0.5
 
-  aws-cdk@2.1031.1:
+  aws-cdk@2.1032.0:
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -8356,7 +8356,7 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
-  projen@0.98.6(constructs@10.0.5):
+  projen@0.98.11(constructs@10.0.5):
     dependencies:
       constructs: 10.0.5
 
