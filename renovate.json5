@@ -86,7 +86,6 @@
     "pnpm/action-setup",
     "amannn/action-semantic-pull-request",
     "actions/setup-node",
-    "codecov/codecov-action",
     "actions/upload-artifact",
     "Glennmen/datadog-event-action",
     "rtCamp/action-slack-notify",

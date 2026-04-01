@@ -24,6 +24,12 @@ dist
 tsconfig.tsbuildinfo
 /.eslintrc.json
 !.jsii
+.github/copilot-instructions.md
+.cursor/rules/project.md
+CLAUDE.md
+.amazonq/rules/project.md
+.kiro/steering/project.md
+AGENTS.md
 /.gitattributes
 /.projenrc.ts
 /projenrc

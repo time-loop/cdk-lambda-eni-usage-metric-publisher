@@ -1,7 +1,10 @@
 {
   "files": [
+    ".amazonq/rules/project.md",
+    ".cursor/rules/project.md",
     ".eslintrc.json",
     ".gitattributes",
+    ".github/copilot-instructions.md",
     ".github/pull_request_template.md",
     ".github/workflows/add-to-project.yml",
     ".github/workflows/add-to-update-projen-project.yml",
@@ -12,6 +15,7 @@
     ".github/workflows/renovate.yml",
     ".github/workflows/update-projen-main.yml",
     ".gitignore",
+    ".kiro/steering/project.md",
     ".mergify.yml",
     ".npmrc",
     ".nvmrc",
@@ -20,6 +24,8 @@
     ".projen/deps.json",
     ".projen/files.json",
     ".projen/tasks.json",
+    "AGENTS.md",
+    "CLAUDE.md",
     "renovate.json5",
     "tsconfig.dev.json"
   ],
