@@ -29,7 +29,9 @@ project.npmrc.addConfig('node-linker', 'hoisted'); // PNPM support for bundledDe
 // Pin integ packages to match cdkVersion; experimentalIntegRunner hardcodes @latest which causes
 // decorator incompatibilities when the latest version's peer dep exceeds the pinned aws-cdk-lib.
 project.tryFindObjectFile('package.json')?.addOverride('pnpm.overrides.@aws-cdk/integ-runner', cdkVersion);
-project.tryFindObjectFile('package.json')?.addOverride('pnpm.overrides.@aws-cdk/integ-tests-alpha', `${cdkVersion}-alpha.0`);
+project
+  .tryFindObjectFile('package.json')
+  ?.addOverride('pnpm.overrides.@aws-cdk/integ-tests-alpha', `${cdkVersion}-alpha.0`);
 
 // Assume the usInfraDev role
 const build = project.tryFindObjectFile('.github/workflows/build.yml');
