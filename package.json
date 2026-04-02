@@ -86,7 +86,11 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "unrs-resolver"
-    ]
+    ],
+    "overrides": {
+      "@aws-cdk/integ-runner": "2.189.0",
+      "@aws-cdk/integ-tests-alpha": "2.189.0-alpha.0"
+    }
   },
   "keywords": [
     "cdk"

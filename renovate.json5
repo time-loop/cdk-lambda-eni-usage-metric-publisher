@@ -61,6 +61,8 @@
     }
   ],
   "ignoreDeps": [
+    "@aws-cdk/integ-runner",
+    "@aws-cdk/integ-tests-alpha",
     "@types/node",
     "@typescript-eslint/eslint-plugin",
     "@typescript-eslint/parser",
@@ -72,8 +74,6 @@
     "jsii",
     "ts-node",
     "typescript",
-    "@aws-cdk/integ-runner",
-    "@aws-cdk/integ-tests-alpha",
     "aws-cdk-lib",
     "constructs",
     "node",
