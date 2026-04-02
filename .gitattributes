@@ -2,8 +2,11 @@
 
 * text=auto eol=lf
 *.snap linguist-generated
-/.eslintrc.json linguist-generated
+/.amazonq/rules/project.md linguist-generated
+/.cursor/rules/project.md linguist-generated
+/.eslintrc.json linguist-generated linguist-language=JSON-with-Comments
 /.gitattributes linguist-generated
+/.github/copilot-instructions.md linguist-generated
 /.github/pull_request_template.md linguist-generated
 /.github/workflows/add-to-project.yml linguist-generated
 /.github/workflows/add-to-update-projen-project.yml linguist-generated
@@ -14,6 +17,7 @@
 /.github/workflows/renovate.yml linguist-generated
 /.github/workflows/update-projen-main.yml linguist-generated
 /.gitignore linguist-generated
+/.kiro/steering/project.md linguist-generated
 /.mergify.yml linguist-generated
 /.npmignore linguist-generated
 /.npmrc linguist-generated
@@ -24,8 +28,10 @@
 /.projen/deps.json linguist-generated
 /.projen/files.json linguist-generated
 /.projen/tasks.json linguist-generated
+/AGENTS.md linguist-generated
 /API.md linguist-generated
+/CLAUDE.md linguist-generated
 /package.json linguist-generated
 /pnpm-lock.yaml linguist-generated
-/renovate.json5 linguist-generated
-/tsconfig.dev.json linguist-generated
+/renovate.json5 linguist-generated linguist-language=JSON-with-Comments
+/tsconfig.dev.json linguist-generated linguist-language=JSON-with-Comments

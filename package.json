@@ -39,15 +39,15 @@
   "devDependencies": {
     "@aws-cdk/integ-runner": "latest",
     "@aws-cdk/integ-tests-alpha": "latest",
-    "@time-loop/clickup-projen": "^1.23.0",
+    "@time-loop/clickup-projen": "^1.25.2",
     "@types/jest": "^29.5.14",
-    "@types/node": "^18",
+    "@types/node": "^22",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.189.0",
     "aws-sdk-client-mock": "^4.1.0",
     "commit-and-tag-version": "^12",
-    "constructs": "10.0.5",
+    "constructs": "10.5.1",
     "esbuild": "^0.25.9",
     "eslint": "^9",
     "eslint-config-prettier": "^10.1.8",
@@ -64,14 +64,14 @@
     "jsii-rosetta": "~5.8.0",
     "multi-convention-namer": "0.1.15",
     "prettier": "^3.6.2",
-    "projen": "^0.98.11",
+    "projen": "^0.99.26",
     "ts-jest": "^29.4.1",
     "ts-node": "^10",
     "typescript": "~5.7.0"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.189.0",
-    "constructs": "^10.0.5",
+    "constructs": "^10.5.1",
     "multi-convention-namer": "^0.1.15"
   },
   "dependencies": {
@@ -86,13 +86,17 @@
     "onlyBuiltDependencies": [
       "esbuild",
       "unrs-resolver"
-    ]
+    ],
+    "overrides": {
+      "@aws-cdk/integ-runner": "2.189.0",
+      "@aws-cdk/integ-tests-alpha": "2.189.0-alpha.0"
+    }
   },
   "keywords": [
     "cdk"
   ],
   "engines": {
-    "node": ">= 18.17.1"
+    "node": ">= 22.14.0"
   },
   "main": "lib/index.js",
   "license": "UNLICENSED",
